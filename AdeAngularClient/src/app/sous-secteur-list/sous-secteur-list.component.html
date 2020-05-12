@@ -2,7 +2,8 @@
   <div class="card-body">
   <ul *ngFor="let ss of sousSecteurs" class="text-center list-inline py-3">
     <li class="list-inline-item">
-      <button class="btn btn-primary" routerLink="" title="gg voici une descr"> {{ ss.nom }} </button>
+      <button class="btn btn-primary" routerLink="" title="gg voici une descr"
+              (click)="onSousSecteurClick(ss.code)"> {{ ss.nom }} </button>
     </li>
   </ul>
   </div>

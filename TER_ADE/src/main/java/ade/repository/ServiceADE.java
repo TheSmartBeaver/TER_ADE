@@ -11,6 +11,7 @@ import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,5 +102,30 @@ public class ServiceADE {
 	public List<SousSecteur> findAllSSOfS(String codeSecteur) {
 		Secteur secteur =  secteurRepository.findByCode(codeSecteur);
 		return secteur.getSousSecteurList();
+	}
+
+	public HashSet<Metier> findAllMetierOfSS(String codeSS) {
+		System.err.println("Cherche métiers de SS:"+codeSS);
+		SousSecteur ss =  sousSecteurRepository.findByCode(codeSS);
+		List<Association> assosList = ss.getAssociationList();
+		HashSet<Metier> metiers = new HashSet<>();
+
+		for(Association asso : assosList){
+			metiers.add(asso.getMetier());
+		}
+		return metiers;
+	}
+
+	public HashSet<Formation> findAllFormationOfMetierinSS(String codeSS, String codeMetier) {
+		System.err.println("Cherche formations de SS:"+codeSS+" pour le métier "+codeMetier);
+		SousSecteur ss =  sousSecteurRepository.findByCode(codeSS);
+		List<Association> assosList = ss.getAssociationList();
+		HashSet<Formation> formations = new HashSet<>();
+
+		for(Association asso : assosList){
+			if(asso.getMetier().getCode().equals(codeMetier))
+				formations.add(asso.getFormation());
+		}
+		return formations;
 	}
 }

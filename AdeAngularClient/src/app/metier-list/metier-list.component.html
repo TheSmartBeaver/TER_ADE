@@ -1,0 +1,11 @@
+<div class="card my-5">
+  <div class="card-body">
+    <ul *ngFor="let metier of metiers" class="text-center list-inline py-3">
+      <li class="list-inline-item">
+        <button class="btn btn-primary" routerLink="" title="gg voici une descr"
+                (click)="onMetierClick(metier.code)"> {{ metier.nom }}
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

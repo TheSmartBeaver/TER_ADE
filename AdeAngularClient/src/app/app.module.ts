@@ -9,6 +9,8 @@ import {FormsModule} from '@angular/forms';
 import {SecteurService} from './service/secteur-service.service';
 import {SousSecteurService} from './service/sous-secteur.service';
 import { SousSecteurListComponent } from './sous-secteur-list/sous-secteur-list.component';
+import { MetierListComponent } from './metier-list/metier-list.component';
+import { FormationListComponent } from './formation-list/formation-list.component';
 
 /*On déclare tous les "components", tous les modules et services utilisés par ces "components"*/
 
@@ -16,7 +18,9 @@ import { SousSecteurListComponent } from './sous-secteur-list/sous-secteur-list.
   declarations: [
     AppComponent,
     SecteurListComponent,
-    SousSecteurListComponent
+    SousSecteurListComponent,
+    MetierListComponent,
+    FormationListComponent
   ],
   imports: [
     BrowserModule,

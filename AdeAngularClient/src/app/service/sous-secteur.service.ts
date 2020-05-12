@@ -15,9 +15,9 @@ export class SousSecteurService {
     this.sousSecteursUrl = 'http://localhost:8095/sousSecteursList';
   }
 
-  public findSSOfSecteur(codeSS : String): Observable<SousSecteur[]> {
+  public findSSOfSecteur(codeS : String): Observable<SousSecteur[]> {
     console.log('On demande tous les sous-secteurs du secteur de code');
-    const params = new HttpParams({fromString: "codeSS="+codeSS});
+    const params = new HttpParams({fromString: "codeS="+codeS});
     return this.http.get<SousSecteur[]>(this.sousSecteursUrl, {params});
   }
 }
